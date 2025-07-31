@@ -127,6 +127,14 @@ client.on("interactionCreate", async (interaction) => {
     });
     saveScrims(scrims);
     await interaction.reply("✅ Scrim adicionado com sucesso!");
+
+    const scheduleChannel = await client.channels.fetch(process.env.SCHEDULE_CHANNEL_ID);
+
+    if(scheduleChannel && scheduleChannel.isTextBased()){
+      await scheduleChannel.send(
+        '📢📢 ** New Scrim Scheduled! \n📅 ${data} | ${hora} \n🆚 Against *${adversario}* \n ${observacoes || "."}'
+      );
+    }
   }
 
   if (interaction.commandName === "scrims_remover") {
