@@ -132,7 +132,7 @@ client.on("interactionCreate", async (interaction) => {
 
     if(scheduleChannel && scheduleChannel.isTextBased()){
       await scheduleChannel.send(
-        '📢📢 ** New Scrim Scheduled! \n📅 ${data} | ${hora} \n🆚 Against *${adversario}* \n ${observacoes || "."}'
+        `📢 **New scrim scheduled!**\n📅 ${data} // ${hora}\n🆚 Against: *${adversario}*\n📝 ${observacoes || "No more info!"}`
       );
     }
   }
